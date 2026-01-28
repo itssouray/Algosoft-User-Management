@@ -1,6 +1,6 @@
 # Backend Assignment — Algosoft
 
-This repository is a Node.js + Express backend implementing User, Subscription and Address management following clean-architecture principles and industry best practices.
+This repository is a Node.js + Express backend implementing User, Subscription and Address management following clean-architecture principles.
 
 **Tech Stack**
 
