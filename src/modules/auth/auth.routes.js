@@ -1,7 +1,13 @@
 const express = require('express');
 const validate = require('../../shared/middlewares/validate.middleware');
+const rateLimiter = require('../../shared/middlewares/rateLimit.middleware');
 const { registerSchema, loginSchema } = require('./auth.validation');
 const { register, login } = require('./auth.controller');
+
+const authRateLimiter = rateLimiter({
+  limit: 5,
+  windowSeconds: 60,
+});
 
 const router = express.Router();
 
@@ -34,6 +40,7 @@ const router = express.Router();
 
 router.post(
   '/register',
+  authRateLimiter,
   validate({ body: registerSchema }),
   register
 );
@@ -65,6 +72,7 @@ router.post(
 
 router.post(
   '/login',
+  authRateLimiter,
   validate({ body: loginSchema }),
   login
 );

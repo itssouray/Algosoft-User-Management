@@ -163,3 +163,15 @@ Where to look for endpoints
 - Auth middleware: `shared/middlewares/auth.middleware.js`
 - Validation middleware: `shared/middlewares/validate.middleware.js`
 
+API Documentation (Swagger)
+
+
+- A built-in Swagger UI is mounted at `/api-docs` when the app is running (served by `swagger-ui-express`).
+- Dependencies: `swagger-ui-express`, `swagger-jsdoc` (already added to `package.json`).
+- To view documentation locally:
+
+```bash
+npm install
+npm run dev
+# then open http://localhost:<PORT>/api-docs
+```.

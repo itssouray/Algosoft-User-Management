@@ -26,7 +26,12 @@ const env = {
     expiresIn: process.env.JWT_EXPIRES_IN,
   },
   nodeEnv: process.env.NODE_ENV || 'development',
-  adminEmail:process.env.ADMIN_EMAIL
+  adminEmail:process.env.ADMIN_EMAIL,
+  redis: {  
+    host: process.env.REDIS_HOST,
+    port: Number(process.env.REDIS_PORT),
+    password: String(process.env.REDIS_PASSWORD),
+  },
 };
 
 module.exports = env;
