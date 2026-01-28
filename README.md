@@ -7,6 +7,7 @@ This repository is a Node.js + Express backend implementing User, Subscription a
 - Node.js (JavaScript)
 - Express.js
 - MongoDB + Mongoose
+- Redis
 - Zod (request validation)
 - JWT (authentication)
 - bcrypt (password hashing)
@@ -46,6 +47,18 @@ Authentication & Authorization
 - JWT-based authentication
 - Role-based access control (RBAC) with roles: `USER`, `ADMIN`
 - All protected routes require a valid JWT
+
+Rate Limiting (Redis)
+
+- A Redis-backed rate limiter is applied to authentication endpoints to mitigate brute-force attempts.
+- Endpoints protected: `POST /api/auth/register`, `POST /api/auth/login`.
+- Middleware: see [src/shared/middlewares/rateLimit.middleware.js](src/shared/middlewares/rateLimit.middleware.js) and Redis client in [src/config/redis.js](src/config/redis.js).
+- Environment variables :
+  - `REDIS_HOST` — Redis host
+  - `REDIS_PORT` — Redis port
+  - `REDIS_PASSWORD` — Redis password (if required)
+
+- Behavior: on startup the app attempts to connect to Redis; if connection fails the rate limiter is disabled and the app continues to run (see `src/config/redis.js`).
 
 Module 1 — User Management
 
