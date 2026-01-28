@@ -14,22 +14,24 @@ This repository is a Node.js + Express backend implementing User, Subscription a
 
 **Project Structure**
 
+```text
 src/
 ├── config/
-│ ├── env.js
-│ └── index.js
+│   ├── env.js
+│   └── index.js
 ├── modules/
-│ ├── auth/
-│ ├── user/
-│ ├── subscription/
-│ └── address/
+│   ├── auth/
+│   ├── user/
+│   ├── subscription/
+│   └── address/
 ├── routes/
-│ └── index.js
+│   └── index.js
 ├── shared/
-│ ├── constants/
-│ ├── middlewares/
-│ └── errors/
+│   ├── constants/
+│   ├── middlewares/
+│   └── errors/
 └── server.js
+```
 
 Architecture Principles
 
